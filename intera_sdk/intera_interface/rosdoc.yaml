@@ -1,0 +1,3 @@
+ - builder: epydoc
+   name: Intera SDK Python API
+   config: epydoc.config

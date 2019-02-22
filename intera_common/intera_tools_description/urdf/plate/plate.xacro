@@ -1,0 +1,49 @@
+<?xml version="1.0"?>
+<robot xmlns:xacro="http://ros.org/wiki/xacro" name="plate">
+  <xacro:macro name="plate" params="name depth mass parent">
+  <!-- This is not a URDF, it is a URDF fragment describing a default end effector
+     to be added to the robot URDF at run time.
+  -->
+  <xacro:include filename="$(find intera_tools_description)/urdf/inertia_tensors.urdf.xacro" />
+  <!-- Base of end effector -->
+  <link name="${name}">
+    <!--<inertial>
+      <origin rpy="0 0 0" xyz="0.0 0.0 0.0"/>
+      <mass value="${mass}"/>
+      <inertia ixx="2e-08" ixy="0" ixz="0" iyy="2e-08" iyz="0" izz="3e-08"/>
+    </inertial>-->
+    <xacro:inertial_cuboid mass="${mass}" x_length="0.05" y_length="0.06" z_length="${depth}"/>
+    <visual>
+      <origin rpy="0 0 0" xyz="0.0 0.0 ${-depth/2}"/>
+      <geometry>
+        <box size="0.05 0.06 ${depth}"/>
+      </geometry>
+      <material name="black">
+        <color rgba="0 0 0 1"/>
+      </material>
+    </visual>
+    <collision>
+      <origin rpy="0 0 0" xyz="0.0 0.0 ${-depth/2}"/>
+      <geometry>
+        <box size="0.05 0.06 ${depth}"/>
+      </geometry>
+      <material name="darkred">
+        <color rgba=".5 .1 .1 1"/>
+      </material>
+    </collision>
+  </link>
+
+  <gazebo reference="${name}">
+    <!--<turnGravityOff>true</turnGravityOff>-->
+    <!--<selfCollide>true</selfCollide>-->
+    <material>Gazebo/Black</material>
+  </gazebo>
+
+  <!-- Tool Base Joint -->
+  <joint name="${name}_base" type="fixed">
+    <origin rpy="0 0 0" xyz="0 0 ${depth}"/>
+    <parent link="${parent}"/>
+    <child link="${name}"/>
+  </joint>
+  </xacro:macro>
+</robot>

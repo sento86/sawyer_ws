@@ -1,0 +1,138 @@
+<?xml version="1.0"?>
+<robot xmlns:xacro="http://www.ros.org/wiki/xacro" name="polishing_tool_force_torque">
+  <xacro:macro name="polishing_tool_force_torque" params="side parent *origin">
+  <!-- This is not a URDF, it is a URDF fragment describing a default end effector
+     to be added to the robot URDF at run time.
+  -->
+  <!-- Base of end effector -->
+<!--  <link name="${side}_tool_base">
+    <visual>
+      <origin rpy="0 0 0" xyz="0.0 0.0 0.02"/>
+      <geometry>
+        <cylinder length="0.04" radius="0.02"/>
+      </geometry>
+    </visual>
+    <collision>
+      <origin rpy="0 0 0" xyz="0.0 0.0 0.02"/>
+      <geometry>
+        <cylinder length="0.04" radius="0.02"/>
+      </geometry>
+      <material name="darkred">
+        <color rgba=".5 .1 .1 1"/>
+      </material>
+    </collision>
+    <inertial>
+      <origin rpy="0 0 0" xyz="0.0 0.0 0.0"/>
+      <mass value="0.3"/>
+      <inertia ixx="2e-08" ixy="0" ixz="0" iyy="2e-08" iyz="0" izz="3e-08"/>
+    </inertial>
+  </link>-->
+
+<!--  <gazebo reference="${side}_tool_base">
+    <turnGravityOff>true</turnGravityOff>
+    <selfCollide>false</selfCollide>
+    <mu1 value="0.01" />
+    <mu2 value="0.01" />
+    <kp  value="40000" />
+    <kd  value="1.0" />
+  </gazebo>-->
+
+  <!-- Tool Tip link -->
+  <link name="${side}_tool">
+    <inertial>
+      <origin rpy="0 0 0" xyz="0.0 0.0 0.0"/>
+      <mass value="0.0001"/>
+      <inertia ixx="1e-08" ixy="0" ixz="0" iyy="1e-08" iyz="0" izz="1e-08"/>
+    </inertial>
+    <visual>
+      <origin rpy="0 0 0" xyz="0 0 0"/>
+      <geometry>
+        <mesh filename="package://polish_sr300/gazebo_models/models/meshes/tool.dae"/>
+      </geometry>
+    </visual>
+    <collision>
+      <origin rpy="0 0 0" xyz="0 0 0"/>
+      <geometry>
+<!--        <cylinder length="0.02" radius="0.05"/>-->
+        <mesh filename="package://polish_sr300/gazebo_models/models/meshes/tool.dae"/>
+      </geometry>
+      <material name="darkred">
+        <color rgba=".5 .1 .1 1"/>
+      </material>
+      <surface>
+        <bounce>
+          <restitution_coefficient>0.1</restitution_coefficient>
+          <threshold>100000</threshold>
+        </bounce>
+        <friction>
+          <ode>
+            <!--<mu>0.1</mu>
+            <mu2>0.2</mu2>
+            <fdir1>0 0 1</fdir1>
+            <slip>0.1</slip>
+            <slip2>0.2</slip2>-->
+            <mu>0.01</mu>
+            <mu2>0.01</mu2>
+            <fdir1>0 0 1</fdir1>
+            <slip1>0.0</slip1>
+            <slip2>0.0</slip2>
+          </ode>
+        </friction>
+        <contact>
+          <poissons_ratio>0.4</poissons_ratio>
+          <elastic_modulus>1e8</elastic_modulus>
+          <ode>
+            <soft_cfm>0.1</soft_cfm>
+            <soft_erp>0.2</soft_erp>
+            <!--<kp>1e10</kp>
+            <kd>1</kd>
+            <max_vel>0.02</max_vel>
+            <min_dep>0.005</min_dep>-->
+            <kp>20000</kp>
+            <kd>1</kd>
+            <max_vel>100.0</max_vel>
+            <min_depth>0.05</min_depth>
+          </ode>
+        </contact>
+      </surface>
+    </collision>
+    <inertial>
+      <origin rpy="0 0 0" xyz="0.0 0.0 0.0"/>
+      <mass value="0.3"/>
+      <inertia ixx="2e-08" ixy="0" ixz="0" iyy="2e-08" iyz="0" izz="3e-08"/>
+    </inertial>
+  </link>
+
+  <gazebo reference="${side}_tool">
+    <turnGravityOff>true</turnGravityOff>
+    <selfCollide>false</selfCollide>
+    <mu1 value="0.01" />
+    <mu2 value="0.01" />
+    <kp  value="15000" />
+    <kd  value="1.0" />
+  </gazebo>
+<!--<gazebo reference="${side}_tool">
+  <stopKd value="${finger_stop_kd}" />
+  <stopKp value="${finger_stop_kp}" />
+  <fudgeFactor value="${finger_fudge_factor}" />
+  <provideFeedback value="true"/>
+</gazebo>-->
+  <!-- Tool Base Joint -->
+  <joint name="${side}_tool_base" type="fixed">
+    <origin rpy="0 0 0" xyz="0 0 0"/>
+<!--    <xacro:insert_block name="origin"/>-->
+    <!--<origin rpy="0 0 0" xyz="0 0 0.03"/>-->  <!-- Axia80 + plate (0.025+0.005) -->
+    <!--<origin rpy="0 0 0" xyz="0 0 0.027"/>--> <!-- Mini45 + plate (0.025+0.002) -->
+    <!--<parent link="${side}_hand"/>-->
+    <parent link="${parent}"/>
+<!--    <child link="${side}_tool_base"/>-->
+    <child link="${side}_tool"/>
+  </joint>
+  <!-- Tool Tip joint -->
+<!--  <joint name="${side}_tool_endpoint" type="fixed">
+    <origin rpy="0 0 0" xyz="0 0 0"/>
+    <parent link="${side}_tool_base"/>
+    <child link="${side}_tool"/>
+  </joint>-->
+  </xacro:macro>
+</robot>

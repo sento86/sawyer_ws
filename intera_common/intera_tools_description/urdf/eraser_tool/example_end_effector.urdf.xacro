@@ -1,0 +1,5 @@
+<?xml version="1.0"?>
+<robot xmlns:xacro="http://ros.org/wiki/xacro" name="left_eraser_tool">
+  <xacro:include filename="$(find intera_tools_description)/urdf/eraser_tool/eraser_tool.xacro" />
+  <xacro:eraser_tool side="left" parent="left_hand"/>
+</robot>

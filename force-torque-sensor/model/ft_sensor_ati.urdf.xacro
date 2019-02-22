@@ -1,0 +1,80 @@
+<?xml version="1.0"?>
+<robot xmlns:xacro="http://www.ros.org/wiki/xacro" name="ft_sensor_ati">
+
+    <!-- Include all available models -->
+    <xacro:include filename="$(find force_torque_sensor)/model/models.urdf.xacro"/>
+    <xacro:include filename="$(find force_torque_sensor)/model/ft_sensor.gazebo.xacro"/>
+
+    <!-- Base model for all sensor to have common frame names -->
+    <xacro:macro name="ft_sensor_nano17" params="parent name type *origin">
+
+    <xacro:ft_sensor_gazebo name="${name}" parent="${parent}" type="${type}"/>
+
+    <joint name="${parent}_${name}_base_joint" type="fixed">
+        <xacro:insert_block name="origin"/>
+	<parent link="${parent}"/>
+	<child link="${name}_${type}_base"/>
+    </joint>
+
+    <link name="${name}_${type}_base">
+        <xacro:insert_block name="nano17"/>
+    </link>
+
+<!--    <joint name="${parent}_${name}_measure_joint" type="revolute">-->
+    <joint name="${parent}_${name}_measure_joint" type="fixed">
+        <xacro:insert_block name="nano17_measure_frame"/>
+	<parent link="${name}_${type}_base"/>
+	<child link="${name}_${type}_measure"/>
+	<limit lower="0" upper="0" effort="100" velocity="100"/>
+	<axis xyz="0 0 1" />
+    </joint>
+    <!--<joint name="${parent}_${name}_measure_joint" type="fixed">
+        <xacro:insert_block name="nano17_measure_frame"/>
+	<parent link="${name}_${type}_base"/>
+        <child link="${name}_${type}_measure"/>
+    </joint>-->
+
+    <link name="${name}_${type}_measure">
+        <xacro:insert_block name="nano17_platform"/>
+    </link>
+
+<!--    <xacro:ft_sensor_gazebo name="${name}" parent="${parent}" type="${type}"/>-->
+
+    </xacro:macro>
+
+    <!-- Base model for all sensor to have common frame names -->
+    <xacro:macro name="ft_sensor_axia80" params="parent name type *origin">
+
+    <joint name="${parent}_${name}_base_joint" type="fixed">
+        <xacro:insert_block name="origin"/>
+	<parent link="${parent}"/>
+	<child link="${name}_${type}_base"/>
+    </joint>
+
+    <link name="${name}_${type}_base">
+        <xacro:insert_block name="axia80"/>
+    </link>
+
+<!--    <joint name="${parent}_${name}_measure_joint" type="revolute">-->
+    <joint name="${parent}_${name}_measure_joint" type="fixed">
+        <xacro:insert_block name="axia80_measure_frame"/>
+	<parent link="${name}_${type}_base"/>
+	<child link="${name}_${type}_measure"/>
+	<limit lower="0" upper="0" effort="200" velocity="200"/>
+	<axis xyz="0 0 0" />
+    </joint>
+    <!--<joint name="${parent}_${name}_measure_joint" type="fixed">
+        <xacro:insert_block name="axia80_measure_frame"/>
+	<parent link="${name}_${type}_base"/>
+	<child link="${name}_${type}_measure"/>
+    </joint>-->
+
+    <link name="${name}_${type}_measure">
+        <xacro:insert_block name="axia80_platform"/>
+    </link>
+
+    <xacro:ft_sensor_gazebo name="${name}" parent="${parent}" type="${type}"/>
+
+    </xacro:macro>
+
+</robot>

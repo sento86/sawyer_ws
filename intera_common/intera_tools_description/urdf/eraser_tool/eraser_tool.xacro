@@ -1,0 +1,180 @@
+<?xml version="1.0"?>
+<robot xmlns:xacro="http://ros.org/wiki/xacro" name="eraser_tool">
+  <xacro:macro name="eraser_tool" params="side parent">
+  <!-- This is not a URDF, it is a URDF fragment describing a default end effector
+     to be added to the robot URDF at run time.
+  -->
+  <!-- Base of end effector -->
+  <link name="${side}_velcro_base">
+    <inertial>
+      <origin rpy="0 0 0" xyz="0.0 0.0 0.0"/>
+      <mass value="0.001"/>
+      <inertia ixx="2e-08" ixy="0" ixz="0" iyy="2e-08" iyz="0" izz="3e-08"/>
+    </inertial>
+    <visual>
+      <origin rpy="0 0 0" xyz="0.0 0.0 0.0"/>
+      <geometry>
+        <box size="0.05 0.1 0.004"/>
+      </geometry>
+      <material name="black">
+        <color rgba="0 0 0 1"/>
+      </material>
+    </visual>
+    <collision>
+      <origin rpy="0 0 0" xyz="0.0 0.0 0.0"/>
+      <geometry>
+        <box size="0.05 0.1 0.004"/>
+      </geometry>
+      <material name="darkred">
+        <color rgba=".5 .1 .1 1"/>
+      </material>
+    </collision>
+  </link>
+
+  <gazebo reference="${side}_velcro_base">
+    <!--<turnGravityOff>true</turnGravityOff>-->
+    <selfCollide>true</selfCollide>
+    <mu1 value="0.01" />
+    <mu2 value="0.01" />
+    <kp  value="100000" />
+    <kd  value="0.1" />
+    <material>Gazebo/Black</material>
+  </gazebo>
+
+  <link name="${side}_tool_base">
+    <inertial>
+      <origin rpy="0 0 0" xyz="0.0 0.0 0.0"/>
+      <mass value="0.05"/>
+      <inertia ixx="2e-08" ixy="0" ixz="0" iyy="2e-08" iyz="0" izz="3e-08"/>
+    </inertial>
+    <visual>
+      <origin rpy="0 0 0" xyz="0.0 0.0 0.0"/>
+      <geometry>
+        <box size="0.055 0.11 0.018"/>
+      </geometry>
+      <material name="blue">
+        <color rgba="0 0 0.5 1"/>
+      </material>
+    </visual>
+    <collision>
+      <origin rpy="0 0 0" xyz="0.0 0.0 0.0"/>
+      <geometry>
+        <box size="0.055 0.11 0.018"/>
+      </geometry>
+      <material name="darkred">
+        <color rgba=".5 .1 .1 1"/>
+      </material>
+    </collision>
+  </link>
+
+  <gazebo reference="${side}_tool_base">
+    <!--<turnGravityOff>true</turnGravityOff>-->
+    <selfCollide>true</selfCollide>
+    <mu1 value="0.01" />
+    <mu2 value="0.01" />
+    <kp  value="100000" />
+    <kd  value="0.1" />
+    <material>Gazebo/Blue</material>
+  </gazebo>
+
+  <!-- Tool Tip link -->
+  <link name="${side}_tool0">
+    <inertial>
+      <origin rpy="0 0 0" xyz="0.0 0.0 0.0"/>
+      <mass value="0.01"/>
+      <inertia ixx="1e-08" ixy="0" ixz="0" iyy="1e-08" iyz="0" izz="1e-08"/>
+    </inertial>
+    <visual>
+      <origin rpy="0 0 0" xyz="0.0 0.0 0.0"/>
+      <geometry>
+        <box size="0.055 0.11 0.001"/>
+      </geometry>
+      <material name="gray">
+        <color rgba=".3 .3 .3 1"/>
+      </material>
+    </visual>
+    <collision>
+      <origin rpy="0 0 0" xyz="0.0 0.0 0.0"/>
+      <geometry>
+        <box size="0.055 0.11 0.001"/>
+      </geometry>
+      <material name="darkred">
+        <color rgba=".5 .1 .1 1"/>
+      </material>
+    </collision>
+  </link>
+
+  <gazebo reference="${side}_tool0">
+    <!--<turnGravityOff>true</turnGravityOff>-->
+    <selfCollide>true</selfCollide>
+    <mu1 value="0.01" />
+    <mu2 value="0.01" />
+    <kp  value="50000" />
+    <kd  value="0.1" />
+    <material>Gazebo/Gray</material>
+  </gazebo>
+
+  <!-- Tool Tip link -->
+  <link name="${side}_gripper_tip">
+    <inertial>
+      <origin rpy="0 0 0" xyz="0.0 0.0 0.0"/>
+      <mass value="0.01"/>
+      <inertia ixx="1e-08" ixy="0" ixz="0" iyy="1e-08" iyz="0" izz="1e-08"/>
+    </inertial>
+    <visual>
+      <origin rpy="0 0 0" xyz="0.0 0.0 0.0"/>
+      <geometry>
+        <box size="0.055 0.11 0.001"/>
+      </geometry>
+      <material name="gray">
+        <color rgba=".3 .3 .3 1"/>
+      </material>
+    </visual>
+    <collision>
+      <origin rpy="0 0 0" xyz="0.0 0.0 0.0"/>
+      <geometry>
+        <box size="0.055 0.11 0.001"/>
+      </geometry>
+      <material name="darkred">
+        <color rgba=".5 .1 .1 1"/>
+      </material>
+    </collision>
+  </link>
+
+  <gazebo reference="${side}_gripper_tip">
+    <!--<turnGravityOff>true</turnGravityOff>-->
+    <selfCollide>true</selfCollide>
+    <mu1 value="0.01" />
+    <mu2 value="0.01" />
+    <kp  value="20000" />
+    <kd  value="0.1" />
+    <material>Gazebo/Grey</material>
+  </gazebo>
+
+  <!-- Tool Base Joint -->
+  <joint name="${side}_velcro_base" type="fixed">
+    <origin rpy="0 0 0" xyz="-0.025 0 0.002"/>
+    <!--<parent link="${side}_hand"/>-->
+    <parent link="${parent}"/>
+    <child link="${side}_velcro_base"/>
+  </joint>
+  <joint name="${side}_tool_base" type="fixed">
+    <origin rpy="0 0 0" xyz="0 0 0.011"/>
+    <!--<parent link="${side}_hand"/>-->
+    <parent link="${side}_velcro_base"/>
+    <child link="${side}_tool_base"/>
+  </joint>
+  <!-- Tool Tip joint -->
+  <joint name="${side}_tool_endpoint0" type="fixed">
+    <origin rpy="0 0 0" xyz="0 0 0.0095"/>
+    <parent link="${side}_tool_base"/>
+    <child link="${side}_tool0"/>
+  </joint>
+  <joint name="${side}_tool_endpoint1" type="fixed">
+    <origin rpy="0 0 0" xyz="0 0 0.001"/>
+    <parent link="${side}_tool0"/>
+    <child link="${side}_gripper_tip"/>
+  </joint>
+
+  </xacro:macro>
+</robot>

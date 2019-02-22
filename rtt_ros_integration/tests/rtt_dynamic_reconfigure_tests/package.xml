@@ -1,0 +1,26 @@
+<?xml version="1.0"?>
+<package>
+  <name>rtt_dynamic_reconfigure_tests</name>
+  <version>2.9.0</version>
+  <description>The rtt_dynamic_reconfigure_tests package</description>
+  <maintainer email="orocos-dev@lists.mech.kuleuven.be">Orocos Developers</maintainer>
+
+  <license>BSD</license>
+
+  <author>Johannes Meyer</author>
+
+  <buildtool_depend>catkin</buildtool_depend>
+
+  <build_depend>rtt_ros</build_depend>
+  <build_depend>rtt_dynamic_reconfigure</build_depend>
+  <build_depend>rtt_geometry_msgs</build_depend>
+
+  <!-- The export tag contains other, unspecified, tags -->
+  <export>
+    <rtt_ros>
+      <plugin_depend>rtt_dynamic_reconfigure</plugin_depend>
+      <plugin_depend>rtt_geometry_msgs</plugin_depend>
+    </rtt_ros>
+  </export>
+
+</package>

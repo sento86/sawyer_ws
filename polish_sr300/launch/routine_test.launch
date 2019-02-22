@@ -1,0 +1,13 @@
+<?xml version="1.0" encoding="utf-8"?>
+<launch>
+
+  <!-- dictate initial pose -->
+  <node name="pose_start" pkg="polish_sr300" type="IK_Sample.py" />
+
+  <!-- start transform_cloud.cpp -->
+  <node name="transform_cloud" pkg="polish_sr300" type="transform_cloud" respawn="true"/>
+
+  <!-- start flag listener -->
+  <node name="flag_listener" pkg="polish_sr300" type="flag_listener_test.py" respawn="true"/>
+
+</launch>

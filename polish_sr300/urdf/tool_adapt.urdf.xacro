@@ -1,0 +1,28 @@
+<?xml version="1.0"?>
+
+<robot xmlns:xacro="http://www.ros.org/wiki/xacro">
+
+  <xacro:macro name="tool_adapt_macro" params="parent_link sensor enable_ground_truth *origin">
+    <link name="adapt_l">
+      <visual>
+        <geometry>
+          <mesh filename="package://polish_sr300/gazebo_models/models/meshes/bracket.stl" scale="0.001 0.001 0.001"/>
+        </geometry>
+      </visual>
+      <collision>
+        <geometry>
+          <mesh filename="package://polish_sr300/gazebo_models/models/meshes/bracket.stl" scale="0.001 0.001 0.001"/>
+        </geometry>
+      </collision>
+    </link>
+
+    <joint name="adapt_j" type="fixed">
+      <axis xyz="0 0 0" />
+      <origin xyz="0 0 0.0075" rpy="0 0 0"/>
+      <parent link="${parent_link}"/>
+      <child link="adapt_l"/>
+    </joint>
+
+  </xacro:macro>
+
+</robot>

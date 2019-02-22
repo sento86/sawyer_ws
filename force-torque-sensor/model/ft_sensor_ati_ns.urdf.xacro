@@ -1,0 +1,75 @@
+<?xml version="1.0"?>
+<robot xmlns:xacro="http://www.ros.org/wiki/xacro" name="ft_sensor_ati">
+
+    <!-- Include all available models -->
+    <xacro:include filename="$(find force_torque_sensor)/model/models.urdf.xacro"/>
+
+    <!-- Base model for all sensor to have common frame names -->
+    <xacro:macro name="ft_sensor_nano17" params="name namespace parent type *origin">
+
+    <joint name="${namespace}_${parent}_base_joint" type="fixed">
+        <xacro:insert_block name="origin"/>
+	<parent link="${parent}"/>
+        <child link="${namespace}_${type}_base"/>
+    </joint>
+
+    <link name="${namespace}_${type}_base">
+        <xacro:insert_block name="nano17"/>
+    </link>
+
+    <link name="${namespace}_${type}_measure">
+        <xacro:insert_block name="nano17_platform"/>
+    </link>
+
+    <joint name="${namespace}_${parent}_measure_joint" type="fixed">
+        <xacro:insert_block name="nano17_measure_frame"/>
+        <parent link="${namespace}_${type}_base"/>
+        <child link="${namespace}_${type}_measure"/>
+<!--        <child link="buff_l"/>-->
+	<limit lower="0" upper="0" effort="100" velocity="100"/>
+	<axis xyz="0 0 1" />
+    </joint>
+
+<!--    <gazebo reference="${namespace}_${parent}_measure_joint">
+        <provideFeedback>true</provideFeedback>
+    </gazebo>-->
+
+<!--    <gazebo reference="${namespace}_${parent}_measure_joint">-->
+    <gazebo>
+<!--      <provideFeedback>true</provideFeedback>
+      <gravity>true</gravity>
+      <disableFixedJointLumping>true</disableFixedJointLumping>-->
+      <always_on>true</always_on>
+      <plugin name="${namespace}_ft_sensor" filename="libgazebo_ros_ft_sensor.so">
+      <updateRate>1000</updateRate>
+      <topicName>${namespace}/${parent}/ft_sensor_topic</topicName>
+      <jointName>${namespace}_${parent}_measure_joint</jointName>
+      <noise>
+        <type>gaussian</type>
+        <mean>0.0</mean>
+        <stddev>0.000</stddev> <!-- change this to simulate noise -->
+      </noise>
+      </plugin>
+    </gazebo>
+
+    <gazebo reference="${namespace}_${parent}_measure_joint">
+        <provideFeedback>true</provideFeedback>
+        <gravity>true</gravity>
+        <disableFixedJointLumping>true</disableFixedJointLumping>
+    </gazebo>
+
+    <gazebo reference="${namespace}_${type}_base">
+        <gravity>true</gravity>
+    </gazebo>
+
+    <gazebo reference="${namespace}_${type}_measure">
+        <gravity>true</gravity>
+    </gazebo>
+
+<!--    <gazebo reference="buff_l">
+        <gravity>true</gravity>
+    </gazebo>-->
+
+    </xacro:macro>
+
+</robot>

@@ -1,0 +1,38 @@
+<?xml version="1.0"?>
+
+<robot xmlns:xacro="http://www.ros.org/wiki/xacro">
+
+  <xacro:macro name="buff_pad_macro" params="namespace sensor enable_ground_truth *origin">
+    <link name="buff_l">
+      <visual>
+        <geometry>
+          <cylinder radius="0.1" length="0.01"/>
+        </geometry>
+      </visual>
+      <collision>
+        <geometry>
+          <cylinder radius="0.1" length="0.01"/>
+        </geometry>
+      </collision>
+    </link>
+
+    <joint name="buff_j" type="fixed">
+      <axis xyz="0 0 0" />
+      <origin xyz="0 0 0.011" rpy="0 0 0"/> <!-- for nano17 -->
+<!--      <origin xyz="0 0 0.03" rpy="0 0 0"/>  for avia80 -->
+      <parent link="${namespace}_${sensor}_measure"/>
+      <child link="buff_l"/>
+    </joint>
+
+    <gazebo reference="buff_l">
+       <turnGravityOff>true</turnGravityOff>
+       <selfCollide>false</selfCollide>
+       <mu1 value="0.01" />
+       <mu2 value="0.01" />
+       <kp  value="15000" />
+       <kd  value="0.2" />
+     </gazebo>
+
+  </xacro:macro>
+
+</robot>

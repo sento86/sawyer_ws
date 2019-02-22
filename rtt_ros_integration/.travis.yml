@@ -1,0 +1,33 @@
+sudo: required
+dist: trusty
+language: generic
+compiler:
+  - gcc
+before_install:
+  # Define some config vars
+  - export ROS_DISTRO=indigo
+  - export CI_SOURCE_PATH=$(pwd)
+  # Bootstrap a minimal ROS installation
+  - git clone https://github.com/orocos/ros_ci_tools /tmp/ros_ci_tools && export PATH=/tmp/ros_ci_tools:$PATH
+  - ros_ci_bootstrap
+  - source /opt/ros/$ROS_DISTRO/setup.bash
+  # Create non-isolated workspace
+  - mkdir -p ~/ws/src
+  - pushd ~/ws/src
+  - ln -s $CI_SOURCE_PATH
+  - popd
+  - rosdep install -r --from-paths ~/ws/src --ignore-src --rosdistro $ROS_DISTRO -y > /dev/null
+  # Source the ROS setup script again due to eventually updated env-hooks
+  - source /opt/ros/$ROS_DISTRO/setup.bash
+
+install:
+  # build the normal catkin workspace
+  - pushd ~/ws
+  - catkin_make -j2
+
+script:
+  # Run tests
+  - source devel/setup.bash
+  - catkin_make run_tests
+  - catkin_test_results
+  #- catkin_make install

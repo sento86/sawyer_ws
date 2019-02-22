@@ -1,0 +1,42 @@
+<?xml version="1.0"?>
+<robot xmlns:xacro="http://www.ros.org/wiki/xacro">
+
+    <xacro:macro name="ft_sensor_gazebo" params="parent name type">
+
+        <gazebo reference="${name}_${type}_base">
+            <gravity>true</gravity>
+        </gazebo>
+
+        <gazebo reference="${name}_${type}_measure">
+            <gravity>true</gravity>
+        </gazebo>
+
+<!--        <gazebo reference="${parent}_${name}_measure_joint">-->
+<!--        <gazebo reference="ft_base_measure_joint">-->
+<!--        <provideFeedback>true</provideFeedback>
+          <disableFixedJointLumping>true</disableFixedJointLumping>
+        </gazebo>-->
+
+        <!-- The ft_sensor plugin  -->
+<!--        <gazebo>-->
+        <gazebo reference="${parent}_${name}_measure_joint">
+            <provideFeedback>true</provideFeedback>
+            <disableFixedJointLumping>true</disableFixedJointLumping>
+            <plugin name="${name}_ft_sensor" filename="libgazebo_ros_ft_sensor.so">
+<!--            <plugin name="buff_ft_sensor" filename="libgazebo_ros_ft_sensor.so">-->
+            <updateRate>1000.0</updateRate>
+            <topicName>${parent}_${name}/ft_sensor_topic</topicName>
+<!--            <topicName>buff/ft_sensor_topic</topicName>-->
+            <jointName>${parent}_${name}_measure_joint</jointName>
+<!--            <jointName>tool_adapt_link_ft_sensor_measure_joint</jointName>-->
+            <noise>
+              <type>gaussian</type>
+              <mean>0.0</mean>
+              <stddev>0.003</stddev> <!-- change this to simulate noise -->
+            </noise>
+            </plugin>
+        </gazebo>
+
+    </xacro:macro>
+
+</robot>

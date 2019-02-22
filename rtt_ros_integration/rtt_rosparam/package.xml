@@ -1,0 +1,29 @@
+<?xml version="1.0"?>
+<package format="2">
+  <name>rtt_rosparam</name>
+  <version>2.9.0</version>
+  <description>
+    This package provides an RTT service and service-requester for associating RTT component properties with ROS parameters
+  </description>
+  <maintainer email="orocos-dev@lists.mech.kuleuven.be">Orocos Developers</maintainer>
+
+  <license>BSD</license>
+
+  <url type="website">http://ros.org/wiki/rtt_ros_integration</url>
+  <url type="bugtracker">https://github.com/orocos/rtt_ros_integration/issues</url>
+  
+  <author>Ruben Smits</author>
+
+  <buildtool_depend>catkin</buildtool_depend>
+
+  <depend>rtt_ros</depend>
+  <depend>roscpp</depend>
+  <build_depend>eigen</build_depend>
+  <build_export_depend>eigen</build_export_depend>
+
+  <export>
+    <rtt_ros>
+      <plugin_depend>rtt_rosnode</plugin_depend>
+    </rtt_ros>
+  </export>
+</package>

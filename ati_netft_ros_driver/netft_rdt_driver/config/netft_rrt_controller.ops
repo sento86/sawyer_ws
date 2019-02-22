@@ -1,0 +1,18 @@
+#!/usr/bin/env deployer-gnulinux
+
+import("rtt_ros")
+import("rtt_rosnode")
+ros.import("netft_rdt_driver")
+
+## Load a NetftRttController component
+loadComponent("NetftRttController","NetftRttController")
+
+## Give it a periodic activity
+setActivity("NetftRttController", 1.0/350.0, HighestPriority, ORO_SCHED_RT)
+
+
+## Configure the RttRosControlExample component
+NetftRttController.configure()
+
+## Start it
+NetftRttController.start()

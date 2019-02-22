@@ -1,0 +1,21 @@
+<launch>
+  <!-- launch file arguments -->
+  <arg name="ip_address" default="192.168.1.1" />
+  
+  <group ns="ft_sensor">
+    <!-- start netf_rrt_controller (hardware interface) -->
+    <param name="address"  type="string" value="$(arg ip_address)" />
+    <param name="topic"      type="string" value="raw" />
+    <include file="$(find rtt_ros)/launch/deployer.launch">
+      <arg name="DEPLOYER_ARGS" value="-s $(find netft_rdt_driver)/config/netft_rrt_controller.ops"/>
+      <arg name="LOG_LEVEL" value="info"/>
+      <arg name="DEBUG" value="false"/>
+    </include>
+    
+    <!-- spawn force_torque_sensor_controller controller -->
+    <rosparam command="load" file="$(find netft_rdt_driver)/config/force_torque_sensor_controller.yaml" />
+    <node name="force_torque_sensor_controller" pkg="controller_manager" type="spawner" output="screen" args="force_torque_sensor_controller" /> 
+  </group>
+  
+  <node name="rqt_plot_view" pkg="rqt_plot" type="rqt_plot" args="/ft_sensor/raw/wrench/force" />
+</launch>
