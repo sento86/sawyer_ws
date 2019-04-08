@@ -26,7 +26,7 @@ robot:
 #        pid: {p: 5000.0,  i: 0.0, d: 1000.0} # Sawyer P
         #pid: {p: 1000.0,  i: 0.0, d: 500.0} # Sawyer PD
         #pid: {p: 1000.0,  i: 20.0, d: 400.0, i_clamp_min: -10.0, i_clamp_max: 10.0} # Sawyer PID
-        pid: {p: 1000.0,  i: 20.0, d: 100.0, i_clamp_min: -10.0, i_clamp_max: 10.0} # Sawyer PID (gravity and gravity compensation OFF)
+        pid: {p: 1000.0,  i: 10.0, d: 100.0, i_clamp_min: -1.0, i_clamp_max: 1.0} # Sawyer PID (gravity and gravity compensation OFF)
       right_j1_controller:
         joint: right_j1
 #        pid: {p: 10000.0,  i: 0.0, d: 500.0} # Sawyer P
@@ -50,8 +50,6 @@ robot:
         pid: {p: 800.0,  i: 10.0, d: 80.0, i_clamp_min: -1.0, i_clamp_max: 1.0} # Sawyer PID (gravity and gravity compensation OFF)
       right_j4_controller:
         joint: right_j4
-#        pid: {p: 2000.0,  i: 0.0, d: 40.0} # Sawyer P
-        #pid: {p: 5000.0,  i: 0.0, d: 100.0} # Sawyer P (It seems to be the most conflictive one!)
         #pid: {p: 500.0,  i: 0.0, d: 50.0} # Sawyer P
         #pid: {p: 200.0,  i: 0.0, d: 10.0} # Sawyer PD
         #pid: {p: 200.0,  i: 1.0, d: 10.0, i_clamp_min: -10.0, i_clamp_max: 10.0} # Sawyer PID
