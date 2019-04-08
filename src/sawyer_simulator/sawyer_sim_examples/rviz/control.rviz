@@ -1,0 +1,824 @@
+Panels:
+  - Class: rviz/Displays
+    Help Height: 81
+    Name: Displays
+    Property Tree Widget:
+      Expanded:
+        - /Global Options1
+        - /Status1
+      Splitter Ratio: 0.458333343
+    Tree Height: 828
+  - Class: rviz/Selection
+    Name: Selection
+  - Class: rviz/Tool Properties
+    Expanded:
+      - /2D Pose Estimate1
+      - /2D Nav Goal1
+      - /Publish Point1
+    Name: Tool Properties
+    Splitter Ratio: 0.588679016
+  - Class: rviz/Views
+    Expanded:
+      - /Current View1
+    Name: Views
+    Splitter Ratio: 0.5
+  - Class: rviz/Time
+    Experimental: false
+    Name: Time
+    SyncMode: 0
+    SyncSource: Image1
+Visualization Manager:
+  Class: ""
+  Displays:
+    - Alpha: 0.5
+      Cell Size: 1
+      Class: rviz/Grid
+      Color: 160; 160; 164
+      Enabled: true
+      Line Style:
+        Line Width: 0.0299999993
+        Value: Lines
+      Name: Grid
+      Normal Cell Count: 0
+      Offset:
+        X: 0
+        Y: 0
+        Z: 0
+      Plane: XY
+      Plane Cell Count: 10
+      Reference Frame: <Fixed Frame>
+      Value: true
+    - Alpha: 1
+      Class: rviz/RobotModel
+      Collision Enabled: false
+      Enabled: true
+      Links:
+        All Links Enabled: true
+        Expand Joint Details: false
+        Expand Link Details: false
+        Expand Tree: false
+        Link Tree Style: Links in Alphabetic Order
+        axia80_ft_base:
+          Alpha: 1
+          Show Axes: false
+          Show Trail: false
+          Value: true
+        axia80_ft_measure:
+          Alpha: 1
+          Show Axes: false
+          Show Trail: false
+          Value: true
+        base:
+          Alpha: 1
+          Show Axes: false
+          Show Trail: false
+        base_link:
+          Alpha: 1
+          Show Axes: false
+          Show Trail: false
+          Value: true
+        brida_link:
+          Alpha: 1
+          Show Axes: false
+          Show Trail: false
+          Value: true
+        link_1:
+          Alpha: 1
+          Show Axes: false
+          Show Trail: false
+          Value: true
+        link_2:
+          Alpha: 1
+          Show Axes: false
+          Show Trail: false
+          Value: true
+        link_3:
+          Alpha: 1
+          Show Axes: false
+          Show Trail: false
+          Value: true
+        link_4:
+          Alpha: 1
+          Show Axes: false
+          Show Trail: false
+          Value: true
+        link_5:
+          Alpha: 1
+          Show Axes: false
+          Show Trail: false
+          Value: true
+        link_6:
+          Alpha: 1
+          Show Axes: false
+          Show Trail: false
+          Value: true
+        tool0:
+          Alpha: 1
+          Show Axes: false
+          Show Trail: false
+        tool_base:
+          Alpha: 1
+          Show Axes: false
+          Show Trail: false
+          Value: true
+        tool_tip:
+          Alpha: 1
+          Show Axes: false
+          Show Trail: false
+          Value: true
+        world:
+          Alpha: 1
+          Show Axes: false
+          Show Trail: false
+      Name: GazeboKR6Model
+      Robot Description: kr6/robot_description
+      TF Prefix: kr6
+      Update Interval: 0
+      Value: true
+      Visual Enabled: true
+    - Alpha: 1
+      Class: rviz/RobotModel
+      Collision Enabled: false
+      Enabled: true
+      Links:
+        All Links Enabled: true
+        Expand Joint Details: false
+        Expand Link Details: false
+        Expand Tree: false
+        Link Tree Style: Links in Alphabetic Order
+      Name: GazeboKR7Model
+      Robot Description: kr7/robot_description
+      TF Prefix: kr7
+      Update Interval: 0
+      Value: true
+      Visual Enabled: true
+    - Alpha: 0.5
+      Class: rviz/RobotModel
+      Collision Enabled: false
+      Enabled: true
+      Links:
+        All Links Enabled: true
+        Expand Joint Details: false
+        Expand Link Details: false
+        Expand Tree: false
+        Link Tree Style: Links in Alphabetic Order
+        axia80_ft_base:
+          Alpha: 1
+          Show Axes: false
+          Show Trail: false
+          Value: true
+        axia80_ft_measure:
+          Alpha: 1
+          Show Axes: false
+          Show Trail: false
+          Value: true
+        base:
+          Alpha: 1
+          Show Axes: false
+          Show Trail: false
+        base_link:
+          Alpha: 1
+          Show Axes: false
+          Show Trail: false
+          Value: true
+        brida_link:
+          Alpha: 1
+          Show Axes: false
+          Show Trail: false
+          Value: true
+        link_1:
+          Alpha: 1
+          Show Axes: false
+          Show Trail: false
+          Value: true
+        link_2:
+          Alpha: 1
+          Show Axes: false
+          Show Trail: false
+          Value: true
+        link_3:
+          Alpha: 1
+          Show Axes: false
+          Show Trail: false
+          Value: true
+        link_4:
+          Alpha: 1
+          Show Axes: false
+          Show Trail: false
+          Value: true
+        link_5:
+          Alpha: 1
+          Show Axes: false
+          Show Trail: false
+          Value: true
+        link_6:
+          Alpha: 1
+          Show Axes: false
+          Show Trail: false
+          Value: true
+        tool0:
+          Alpha: 1
+          Show Axes: false
+          Show Trail: false
+        tool_base:
+          Alpha: 1
+          Show Axes: false
+          Show Trail: false
+          Value: true
+        tool_tip:
+          Alpha: 1
+          Show Axes: false
+          Show Trail: false
+          Value: true
+        world:
+          Alpha: 1
+          Show Axes: false
+          Show Trail: false
+      Name: KR6Model
+      Robot Description: robot_description
+      TF Prefix: ""
+      Update Interval: 0
+      Value: true
+      Visual Enabled: true
+    - Class: rviz/TF
+      Enabled: true
+      Frame Timeout: 15
+      Frames:
+        All Enabled: true
+        cell/base:
+          Value: true
+        cell/base_link:
+          Value: true
+        cell/camera1_depth_frame:
+          Value: true
+        cell/camera1_depth_optical_frame:
+          Value: true
+        cell/camera1_link:
+          Value: true
+        cell/camera1_rgb_frame:
+          Value: true
+        cell/camera1_rgb_optical_frame:
+          Value: true
+        cell/camera2_depth_frame:
+          Value: true
+        cell/camera2_depth_optical_frame:
+          Value: true
+        cell/camera2_link:
+          Value: true
+        cell/camera2_rgb_frame:
+          Value: true
+        cell/camera2_rgb_optical_frame:
+          Value: true
+        cell/camera3_depth_frame:
+          Value: true
+        cell/camera3_depth_optical_frame:
+          Value: true
+        cell/camera3_link:
+          Value: true
+        cell/camera3_rgb_frame:
+          Value: true
+        cell/camera3_rgb_optical_frame:
+          Value: true
+        cell/camera4_depth_frame:
+          Value: true
+        cell/camera4_depth_optical_frame:
+          Value: true
+        cell/camera4_link:
+          Value: true
+        cell/camera4_rgb_frame:
+          Value: true
+        cell/camera4_rgb_optical_frame:
+          Value: true
+        cell/door1:
+          Value: true
+        kr6/axia80_ft_base:
+          Value: true
+        kr6/axia80_ft_measure:
+          Value: true
+        kr6/base:
+          Value: true
+        kr6/base_link:
+          Value: true
+        kr6/brida_link:
+          Value: true
+        kr6/link_1:
+          Value: true
+        kr6/link_2:
+          Value: true
+        kr6/link_3:
+          Value: true
+        kr6/link_4:
+          Value: true
+        kr6/link_5:
+          Value: true
+        kr6/link_6:
+          Value: true
+        kr6/tool0:
+          Value: true
+        kr6/tool_base:
+          Value: true
+        kr6/tool_tip:
+          Value: true
+        kr6/world:
+          Value: true
+        world:
+          Value: true
+      Marker Scale: 0.25
+      Name: TF
+      Show Arrows: true
+      Show Axes: true
+      Show Names: true
+      Tree:
+        world:
+          cell/base_link:
+            cell/base:
+              {}
+            cell/camera1_link:
+              cell/camera1_depth_frame:
+                cell/camera1_depth_optical_frame:
+                  {}
+              cell/camera1_rgb_frame:
+                cell/camera1_rgb_optical_frame:
+                  {}
+            cell/camera2_link:
+              cell/camera2_depth_frame:
+                cell/camera2_depth_optical_frame:
+                  {}
+              cell/camera2_rgb_frame:
+                cell/camera2_rgb_optical_frame:
+                  {}
+            cell/camera3_link:
+              cell/camera3_depth_frame:
+                cell/camera3_depth_optical_frame:
+                  {}
+              cell/camera3_rgb_frame:
+                cell/camera3_rgb_optical_frame:
+                  {}
+            cell/camera4_link:
+              cell/camera4_depth_frame:
+                cell/camera4_depth_optical_frame:
+                  {}
+              cell/camera4_rgb_frame:
+                cell/camera4_rgb_optical_frame:
+                  {}
+            cell/door1:
+              {}
+          kr6/world:
+            kr6/base_link:
+              kr6/base:
+                {}
+              kr6/link_1:
+                kr6/link_2:
+                  kr6/link_3:
+                    kr6/link_4:
+                      kr6/link_5:
+                        kr6/link_6:
+                          kr6/tool0:
+                            kr6/brida_link:
+                              kr6/axia80_ft_base:
+                                kr6/axia80_ft_measure:
+                                  kr6/tool_base:
+                                    kr6/tool_tip:
+                                      {}
+      Update Interval: 0
+      Value: true
+    - Acceleration_Scaling_Factor: 1
+      Class: moveit_rviz_plugin/MotionPlanning
+      Enabled: false
+      Move Group Namespace: ""
+      MoveIt_Allow_Approximate_IK: false
+      MoveIt_Allow_External_Program: false
+      MoveIt_Allow_Replanning: false
+      MoveIt_Allow_Sensor_Positioning: false
+      MoveIt_Goal_Tolerance: 0
+      MoveIt_Planning_Attempts: 10
+      MoveIt_Planning_Time: 5
+      MoveIt_Use_Constraint_Aware_IK: true
+      MoveIt_Warehouse_Host: 127.0.0.1
+      MoveIt_Warehouse_Port: 33829
+      MoveIt_Workspace:
+        Center:
+          X: 0
+          Y: 0
+          Z: 0
+        Size:
+          X: 2
+          Y: 2
+          Z: 2
+      Name: MotionPlanning
+      Planned Path:
+        Color Enabled: false
+        Interrupt Display: false
+        Links:
+          All Links Enabled: true
+          Expand Joint Details: false
+          Expand Link Details: false
+          Expand Tree: false
+          Link Tree Style: Links in Alphabetic Order
+        Loop Animation: false
+        Robot Alpha: 0.5
+        Robot Color: 150; 50; 150
+        Show Robot Collision: false
+        Show Robot Visual: true
+        Show Trail: false
+        State Display Time: 0.05 s
+        Trail Step Size: 1
+        Trajectory Topic: /move_group/display_planned_path
+      Planning Metrics:
+        Payload: 1
+        Show Joint Torques: false
+        Show Manipulability: false
+        Show Manipulability Index: false
+        Show Weight Limit: false
+        TextHeight: 0.0799999982
+      Planning Request:
+        Colliding Link Color: 255; 0; 0
+        Goal State Alpha: 1
+        Goal State Color: 250; 128; 0
+        Interactive Marker Size: 0
+        Joint Violation Color: 255; 0; 255
+        Planning Group: arm
+        Query Goal State: true
+        Query Start State: false
+        Show Workspace: false
+        Start State Alpha: 1
+        Start State Color: 0; 255; 0
+      Planning Scene Topic: move_group/monitored_planning_scene
+      Robot Description: robot_description
+      Scene Geometry:
+        Scene Alpha: 0.899999976
+        Scene Color: 50; 230; 50
+        Scene Display Time: 0.200000003
+        Show Scene Geometry: true
+        Voxel Coloring: Z-Axis
+        Voxel Rendering: Occupied Voxels
+      Scene Robot:
+        Attached Body Color: 150; 50; 150
+        Links:
+          All Links Enabled: true
+          Expand Joint Details: false
+          Expand Link Details: false
+          Expand Tree: false
+          Link Tree Style: Links in Alphabetic Order
+        Robot Alpha: 1
+        Show Robot Collision: false
+        Show Robot Visual: true
+      Value: false
+      Velocity_Scaling_Factor: 1
+    - Alpha: 0.300000012
+      Class: rviz/RobotModel
+      Collision Enabled: false
+      Enabled: true
+      Links:
+        All Links Enabled: true
+        Expand Joint Details: false
+        Expand Link Details: false
+        Expand Tree: false
+        Link Tree Style: Links in Alphabetic Order
+        base:
+          Alpha: 1
+          Show Axes: false
+          Show Trail: false
+          Value: true
+        base_link:
+          Alpha: 1
+          Show Axes: false
+          Show Trail: false
+        camera1_depth_frame:
+          Alpha: 1
+          Show Axes: false
+          Show Trail: false
+        camera1_depth_optical_frame:
+          Alpha: 1
+          Show Axes: false
+          Show Trail: false
+        camera1_link:
+          Alpha: 1
+          Show Axes: false
+          Show Trail: false
+          Value: true
+        camera1_rgb_frame:
+          Alpha: 1
+          Show Axes: false
+          Show Trail: false
+        camera1_rgb_optical_frame:
+          Alpha: 1
+          Show Axes: false
+          Show Trail: false
+        camera2_depth_frame:
+          Alpha: 1
+          Show Axes: false
+          Show Trail: false
+        camera2_depth_optical_frame:
+          Alpha: 1
+          Show Axes: false
+          Show Trail: false
+        camera2_link:
+          Alpha: 1
+          Show Axes: false
+          Show Trail: false
+          Value: true
+        camera2_rgb_frame:
+          Alpha: 1
+          Show Axes: false
+          Show Trail: false
+        camera2_rgb_optical_frame:
+          Alpha: 1
+          Show Axes: false
+          Show Trail: false
+        camera3_depth_frame:
+          Alpha: 1
+          Show Axes: false
+          Show Trail: false
+        camera3_depth_optical_frame:
+          Alpha: 1
+          Show Axes: false
+          Show Trail: false
+        camera3_link:
+          Alpha: 1
+          Show Axes: false
+          Show Trail: false
+          Value: true
+        camera3_rgb_frame:
+          Alpha: 1
+          Show Axes: false
+          Show Trail: false
+        camera3_rgb_optical_frame:
+          Alpha: 1
+          Show Axes: false
+          Show Trail: false
+        camera4_depth_frame:
+          Alpha: 1
+          Show Axes: false
+          Show Trail: false
+        camera4_depth_optical_frame:
+          Alpha: 1
+          Show Axes: false
+          Show Trail: false
+        camera4_link:
+          Alpha: 1
+          Show Axes: false
+          Show Trail: false
+          Value: true
+        camera4_rgb_frame:
+          Alpha: 1
+          Show Axes: false
+          Show Trail: false
+        camera4_rgb_optical_frame:
+          Alpha: 1
+          Show Axes: false
+          Show Trail: false
+        door1:
+          Alpha: 1
+          Show Axes: false
+          Show Trail: false
+          Value: true
+      Name: CellModel
+      Robot Description: cell/robot_description
+      TF Prefix: cell
+      Update Interval: 0
+      Value: true
+      Visual Enabled: true
+    - Alpha: 1
+      Autocompute Intensity Bounds: true
+      Autocompute Value Bounds:
+        Max Value: 10
+        Min Value: -10
+        Value: true
+      Axis: Z
+      Channel Name: intensity
+      Class: rviz/PointCloud2
+      Color: 255; 255; 255
+      Color Transformer: RGB8
+      Decay Time: 0
+      Enabled: true
+      Invert Rainbow: false
+      Max Color: 255; 255; 255
+      Max Intensity: 4096
+      Min Color: 0; 0; 0
+      Min Intensity: 0
+      Name: PointCloud1
+      Position Transformer: XYZ
+      Queue Size: 0
+      Selectable: true
+      Size (Pixels): 3
+      Size (m): 0.00499999989
+      Style: Flat Squares
+      Topic: /camera1/depth/points
+      Unreliable: false
+      Use Fixed Frame: true
+      Use rainbow: true
+      Value: true
+    - Alpha: 1
+      Autocompute Intensity Bounds: true
+      Autocompute Value Bounds:
+        Max Value: 10
+        Min Value: -10
+        Value: true
+      Axis: Z
+      Channel Name: intensity
+      Class: rviz/PointCloud2
+      Color: 255; 255; 255
+      Color Transformer: RGB8
+      Decay Time: 0
+      Enabled: true
+      Invert Rainbow: false
+      Max Color: 255; 255; 255
+      Max Intensity: 4096
+      Min Color: 0; 0; 0
+      Min Intensity: 0
+      Name: PointCloud2
+      Position Transformer: XYZ
+      Queue Size: 0
+      Selectable: true
+      Size (Pixels): 3
+      Size (m): 0.00499999989
+      Style: Flat Squares
+      Topic: /camera2/depth/points
+      Unreliable: false
+      Use Fixed Frame: true
+      Use rainbow: true
+      Value: true
+    - Alpha: 1
+      Autocompute Intensity Bounds: true
+      Autocompute Value Bounds:
+        Max Value: 10
+        Min Value: -10
+        Value: true
+      Axis: Z
+      Channel Name: intensity
+      Class: rviz/PointCloud2
+      Color: 255; 255; 255
+      Color Transformer: RGB8
+      Decay Time: 0
+      Enabled: true
+      Invert Rainbow: false
+      Max Color: 255; 255; 255
+      Max Intensity: 4096
+      Min Color: 0; 0; 0
+      Min Intensity: 0
+      Name: PointCloud3
+      Position Transformer: XYZ
+      Queue Size: 0
+      Selectable: true
+      Size (Pixels): 3
+      Size (m): 0.00499999989
+      Style: Flat Squares
+      Topic: /camera3/depth/points
+      Unreliable: false
+      Use Fixed Frame: true
+      Use rainbow: true
+      Value: true
+    - Alpha: 1
+      Autocompute Intensity Bounds: true
+      Autocompute Value Bounds:
+        Max Value: 10
+        Min Value: -10
+        Value: true
+      Axis: Z
+      Channel Name: intensity
+      Class: rviz/PointCloud2
+      Color: 255; 255; 255
+      Color Transformer: RGB8
+      Decay Time: 0
+      Enabled: true
+      Invert Rainbow: false
+      Max Color: 255; 255; 255
+      Max Intensity: 4096
+      Min Color: 0; 0; 0
+      Min Intensity: 0
+      Name: PointCloud4
+      Position Transformer: XYZ
+      Queue Size: 0
+      Selectable: true
+      Size (Pixels): 3
+      Size (m): 0.00499999989
+      Style: Flat Squares
+      Topic: /camera4/depth/points
+      Unreliable: false
+      Use Fixed Frame: true
+      Use rainbow: true
+      Value: true
+    - Class: rviz/Image
+      Enabled: true
+      Image Topic: /camera1/rgb/image_raw
+      Max Value: 1
+      Median window: 5
+      Min Value: 0
+      Name: Image1
+      Normalize Range: true
+      Queue Size: 2
+      Transport Hint: raw
+      Unreliable: false
+      Value: true
+    - Class: rviz/Image
+      Enabled: true
+      Image Topic: /camera2/rgb/image_raw
+      Max Value: 1
+      Median window: 5
+      Min Value: 0
+      Name: Image2
+      Normalize Range: true
+      Queue Size: 2
+      Transport Hint: raw
+      Unreliable: false
+      Value: true
+    - Class: rviz/Image
+      Enabled: true
+      Image Topic: /camera3/rgb/image_raw
+      Max Value: 1
+      Median window: 5
+      Min Value: 0
+      Name: Image3
+      Normalize Range: true
+      Queue Size: 2
+      Transport Hint: raw
+      Unreliable: false
+      Value: true
+    - Class: rviz/Image
+      Enabled: true
+      Image Topic: /camera4/rgb/image_raw
+      Max Value: 1
+      Median window: 5
+      Min Value: 0
+      Name: Image4
+      Normalize Range: true
+      Queue Size: 2
+      Transport Hint: raw
+      Unreliable: false
+      Value: true
+  Enabled: true
+  Global Options:
+    Background Color: 48; 48; 48
+    Default Light: true
+    Fixed Frame: world
+    Frame Rate: 30
+  Name: root
+  Tools:
+    - Class: rviz/Interact
+      Hide Inactive Objects: true
+    - Class: rviz/MoveCamera
+    - Class: rviz/Select
+    - Class: rviz/FocusCamera
+    - Class: rviz/Measure
+    - Class: rviz/SetInitialPose
+      Topic: /initialpose
+    - Class: rviz/SetGoal
+      Topic: /move_base_simple/goal
+    - Class: rviz/PublishPoint
+      Single click: true
+      Topic: /clicked_point
+  Value: true
+  Views:
+    Current:
+      Class: rviz/Orbit
+      Distance: 4.09855175
+      Enable Stereo Rendering:
+        Stereo Eye Separation: 0.0599999987
+        Stereo Focal Distance: 1
+        Swap Stereo Eyes: false
+        Value: false
+      Focal Point:
+        X: 0.229377523
+        Y: 0.00483803032
+        Z: 0.764266908
+      Focal Shape Fixed Size: true
+      Focal Shape Size: 0.0500000007
+      Invert Z Axis: false
+      Name: Current View
+      Near Clip Distance: 0.00999999978
+      Pitch: 0.50039804
+      Target Frame: <Fixed Frame>
+      Value: Orbit (rviz)
+      Yaw: 5.7786026
+    Saved: ~
+Window Geometry:
+  Displays:
+    collapsed: false
+  Height: 1031
+  Hide Left Dock: false
+  Hide Right Dock: false
+  Image1:
+    collapsed: false
+  Image2:
+    collapsed: false
+  Image3:
+    collapsed: false
+  Image4:
+    collapsed: false
+  MotionPlanning:
+    collapsed: false
+  MotionPlanning - Trajectory Slider:
+    collapsed: false
+  QMainWindow State: 000000ff00000000fd00000004000000000000016a000003cefc020000000bfb0000001200530065006c0065006300740069006f006e00000001e10000009b0000006700fffffffb0000001e0054006f006f006c002000500072006f007000650072007400690065007302000001ed000001df00000185000000a3fb000000120056006900650077007300200054006f006f02000001df000002110000018500000122fb000000200054006f006f006c002000500072006f0070006500720074006900650073003203000002880000011d000002210000017afb000000100044006900730070006c006100790073010000001b000003ce000000e300fffffffb0000002000730065006c0065006300740069006f006e00200062007500660066006500720200000138000000aa0000023a00000294fb00000014005700690064006500530074006500720065006f02000000e6000000d2000003ee0000030bfb0000000c004b0069006e0065006300740200000186000001060000030c00000261fb000000120020002d00200053006c00690064006500720000000000ffffffff0000000000000000fb0000001c004d006f00740069006f006e0050006c0061006e006e0069006e0067000000022a000001be0000018400fffffffb00000044004d006f00740069006f006e0050006c0061006e006e0069006e00670020002d0020005400720061006a006500630074006f0072007900200053006c00690064006500720000000000ffffffff0000004300ffffff0000000100000125000003cefc0200000008fb0000000c0049006d0061006700650031010000001b000000ef0000001600fffffffb0000000c0049006d00610067006500320100000110000000ef0000001600fffffffb0000000c0049006d00610067006500330100000205000000ef0000001600fffffffb0000000c0049006d006100670065003401000002fa000000ef0000001600fffffffb0000000c00430061006d006500720061000000001b000003ce0000000000000000fb0000001e0054006f006f006c002000500072006f00700065007200740069006500730100000041000000780000000000000000fb0000000a00560069006500770073000000000000000402000000b300fffffffb0000001200530065006c0065006300740069006f006e010000025a000000b200000000000000000000000200000490000000a9fc0100000001fb0000000a00560069006500770073030000004e00000080000002e100000197000000030000073f0000003efc0100000002fb0000000800540069006d006500000000000000073f0000022300fffffffb0000000800540069006d00650100000000000004500000000000000000000004e5000003ce00000004000000040000000800000008fc0000000100000002000000010000000a0054006f006f006c00730000000000ffffffff0000000000000000
+  Selection:
+    collapsed: false
+  Time:
+    collapsed: false
+  Tool Properties:
+    collapsed: false
+  Views:
+    collapsed: false
+  Width: 1920
+  X: 0
+  Y: 25

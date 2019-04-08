@@ -1,0 +1,13 @@
+<?xml version="1.0" encoding="utf-8"?>
+<robot name="tool" xmlns:xacro="http://ros.org/wiki/xacro">
+
+  <xacro:arg name="gazebo" default="false"/>
+
+  <!-- Tool -->
+  <xacro:include filename="$(find intera_tools_description)/urdf/tool/tool.xacro" />
+
+  <xacro:tool side="right" parent="base_link">
+      <origin xyz="0.0 0.0 0.0" rpy="0 0 0" />
+  </xacro:tool>
+
+</robot>

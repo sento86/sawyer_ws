@@ -1,0 +1,42 @@
+<?xml version="1.0" ?>
+<robot name="right_end_effector_force_torque" xmlns:xacro="http://ros.org/wiki/xacro">
+
+  <xacro:arg name="gazebo" default="false"/>
+  <xacro:if value="$(arg gazebo)">
+    <xacro:property name="gazebo_tag" value="true" scope="local"/>
+  </xacro:if>
+  <xacro:unless value="$(arg gazebo)">
+    <xacro:property name="gazebo_tag" value="false" scope="local"/>
+  </xacro:unless>
+
+  <xacro:include filename="$(find intera_tools_description)/urdf/plate/plate.xacro" />
+  <xacro:plate name="right_plate_sensor" depth="0.007" mass="0.05" parent="right_hand"/> <!-- Plate (0.007) -->
+
+  <!-- Include the force-torque-sensor model -->
+  <xacro:include filename="$(find sensor_description)/urdf/ft_sensor_ati.urdf.xacro"/>
+
+  <xacro:ft_sensor_ft45 parent="right_plate_sensor" name="right" type="ft45">
+    <origin xyz="0 0 0" rpy="0 0 0"/>
+  </xacro:ft_sensor_ft45>
+
+  <xacro:include filename="$(find intera_tools_description)/urdf/plate/plate.xacro" />
+  <xacro:plate name="right_plate_gripper" depth="0.007" mass="0.06" parent="right_ft_measure"/> <!-- Plate (0.007) -->
+
+<!--  <xacro:include filename="$(find intera_tools_description)/urdf/eraser_tool/eraser_tool.xacro" />
+  <xacro:eraser_tool side="right"
+                     parent="right_plate_gripper"/>-->
+
+  <xacro:include filename="$(find intera_tools_description)/urdf/null_gripper/null_gripper.xacro" />
+  <xacro:null_gripper side="right"/>
+
+  <!-- Include tool model -->
+  <xacro:include filename="$(find intera_tools_description)/urdf/tool/tool.xacro"/>
+
+  <xacro:tool parent="right_plate_gripper" side="right">
+    <origin xyz="0 0 0.013" rpy="0 0 0"/>
+  </xacro:tool>
+<!--
+  <xacro:include filename="$(find intera_tools_description)/urdf/null_gripper/null_gripper_force_torque.xacro" />
+  <xacro:null_gripper_force_torque side="right" parent="right_tool_tip"/>
+-->
+</robot>

@@ -1,0 +1,7 @@
+<?xml version="1.0" encoding="utf-8"?>
+<launch>
+
+  <!-- Rviz to vizualize robot -->
+  <node name="rviz" pkg="rviz" type="rviz" output="screen" args="-d '$(find sawyer_sim_examples)/rviz/control.rviz'" />
+
+</launch>

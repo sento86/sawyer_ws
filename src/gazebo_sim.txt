@@ -1,0 +1,26 @@
+rostopic echo /robot/limb/right/joint_command/position[6]
+rostopic echo /robot/joint_states/position[1]
+rostopic echo /robot/joint_errors/position[0]
+
+rostopic pub -r 100 -s /robot/limb/right/joint_command intera_core_msgs/JointCommand '{header: auto, mode: 1, names: ['right_j0','right_j1','right_j2','right_j3','right_j4','right_j5','right_j6'], position: [0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0]}'
+
+rostopic pub -r 100 -s /robot/limb/right/joint_command intera_core_msgs/JointCommand '{header: auto, mode: 2, names: ['right_j0','right_j1','right_j2','right_j3','right_j4','right_j5','right_j6'], velocity: [0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0]}'
+
+rostopic pub -r 10 /robot/limb/right/suppress_gravity_compensation std_msgs/Empty
+
+rostopic echo /right/cmd_joint
+---
+header: 
+  seq: 60
+  stamp: 
+    secs: 345
+    nsecs: 254000000
+  frame_id: ''
+name: [q0, q1, q2, q3, q4, q5, q6]
+position: []
+velocity: [0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0]
+effort: []
+
+geometry_msgs/PoseStamped
+
+rostopic pub -r 100 -s /right/cmd_pose geometry_msgs/PoseStamped '{header: auto, pose: {position: {x: 0.5, y: 0.15, z: 0.2}, orientation:{x: 0.763449653465, y: -0.645781525915, z: -0.00883218889631, w: 0.00573060646451}}}'

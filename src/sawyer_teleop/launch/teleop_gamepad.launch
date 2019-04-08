@@ -1,0 +1,24 @@
+<?xml version="1.0"?>
+<launch>
+
+    <arg name="ns" default="right"/>
+
+    <!-- Joy node -->
+    <node respawn="true" pkg="joy" type="joy_node" name="joy_node" output="log">
+      <param name="joy_dev_" type="string" value="/dev/input/js0" />
+      <!--<param name="deadzone" value="0.12" />-->
+      <param name="deadzone" value="0.0" />
+    </node>
+
+    <!-- Teleoperation node -->
+    <node pkg="sawyer_teleop" type="sawyer_gamepad" name="sawyer_teleop_$(arg ns)" output="screen">
+      <!-- Axis and buttons parameters -->
+      <rosparam file="$(find sawyer_teleop)/config/gamepad.yaml" command="load" />
+      <!-- Twist msg name -->
+      <param name="cmd_vel_topic" value="$(arg ns)/cmd_vel" type="string"/>
+      <param name="cmd_joint_topic" value="$(arg ns)/cmd_joint" type="string"/>
+      <param name="deadman_no_publish" value="false" type="bool"/>
+    </node>
+
+</launch>
+
