@@ -13,7 +13,7 @@
   <xacro:plate name="right_plate_sensor" depth="0.007" mass="0.05" parent="right_hand"/> <!-- Plate (0.007) -->
 
   <!-- Include the force-torque-sensor model -->
-  <xacro:include filename="$(find sensor_description)/urdf/ft_sensor_ati.urdf.xacro"/>
+  <xacro:include filename="$(find kuka_control)/models/ft_sensor/ft_sensor_ati.urdf.xacro"/>
 
   <xacro:ft_sensor_ft45 parent="right_plate_sensor" name="right" type="ft45">
     <origin xyz="0 0 0" rpy="0 0 ${M_PI/2}"/>

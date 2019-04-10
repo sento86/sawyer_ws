@@ -62,21 +62,21 @@ class SMC_Class(object):
         self._U_plus_map = np.identity(6)
         
 
-        self._U_plus_map[0][0] = 2.15 #6.75 #10 chattering free
+        self._U_plus_map[0][0] = 0.0 #6.75 #10 chattering free
         self._U_plus_map[1][1] = 0.0 #6.75 #10 chattering free
         #self._U_plus_map[2][2] = 0.14 #0.35 before - ASG
         self._U_plus_map[2][2] = 0.35
-        self._U_plus_map[3][3] = 12.0 #14.0 before
-        self._U_plus_map[4][4] = 12.0 #14.0 before
+        self._U_plus_map[3][3] = 25.0#12.0 #14.0 before
+        self._U_plus_map[4][4] = 25.0#12.0 #14.0 before
         self._U_plus_map[5][5] = 0.0
       
         self._Ka_map[0][0] = 1.0
-        self._Ka_map[3][3] = 1.3
-        self._Ka_map[4][4] = 1.3
+        self._Ka_map[3][3] = 0.9
+        self._Ka_map[4][4] = 0.9
 
         self._Sensor_ref[0] = 18.0*18.0
         self._Sensor_ref[1] = 18.0*18.0
-        self._Sensor_ref[2] = 15.0 #Con Jn 15; #Con Jrec -15.0
+        self._Sensor_ref[2] = 10.0 #Con Jn 15; #Con Jrec -15.0
 
         #1st Level control parameters
         self._Ka = 0.15
@@ -92,8 +92,8 @@ class SMC_Class(object):
         self._pdd_ref = np.zeros((6,1))
 
         #3rd Level control parameters
-        self._Kq = 1.0
-        self._Kqd = 0.5
+        self._Kq = 1.5
+        self._Kqd = 0.15
 
         self._cnt = 0
         self._cnt2 = 2
@@ -382,11 +382,17 @@ class SMC_Class(object):
 
             msg = self._ig.get_msg() #Wrench info
 
+            #self._Sensor[0] = -msg.wrench.force.y 
+            #self._Sensor[1] = msg.wrench.force.x 
+            #self._Sensor[2] = -msg.wrench.force.z
+            #self._Sensor[4] = msg.wrench.torque.x
+            #self._Sensor[3] = -msg.wrench.torque.y
+            
             self._Sensor[0] = -msg.wrench.force.y 
             self._Sensor[1] = msg.wrench.force.x 
             self._Sensor[2] = -msg.wrench.force.z
-            self._Sensor[4] = msg.wrench.torque.x*1000.0
-            self._Sensor[3] = -msg.wrench.torque.y*1000.0
+            self._Sensor[3] = msg.wrench.torque.x
+            self._Sensor[4] = msg.wrench.torque.y
             
             
             self._sigma_max = self._Sensor - self._Sensor_ref
